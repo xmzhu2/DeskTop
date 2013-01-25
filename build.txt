@@ -1,0 +1,4 @@
+环境需要
+
+npm install express -g
+npm install mongodb -d

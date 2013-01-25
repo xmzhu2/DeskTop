@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>一个有趣的页面</title>
+
+    <link rel="stylesheet" type="text/css" href="ext4/resources/css/ext-all.css" />
+    <link rel="stylesheet" type="text/css" href="desktop/css/desktop.css" />
+    <link rel='stylesheet' type="text/css" href="animation/css/button.css" />
+    <link rel='stylesheet' type="text/css"  href="animation/css/animation.css" />
+    <link rel='stylesheet' type="text/css"  href="animation/css/note.css" />
+    <link rel='stylesheet' type="text/css"  href="animation/css/text.css" />
+
+     <!-- GC -->
+
+    <!-- <x-compile> -->
+    <!-- <x-bootstrap> -->
+    <script type="text/javascript" src="ext4/ext-all.js"></script>
+    <!-- </x-bootstrap> -->
+    <script type="text/javascript">
+        Ext.Loader.setConfig({
+            enabled: true
+        });
+
+        Ext.Loader.setPath({
+            'Ext.ux.desktop': 'desktop/js',
+            'OS.appLoad':'os/appLoad',
+            'OS.user':'os/user',
+            'OS':'os',
+            'Ext.animation':'animation',
+            MyDesktop: 'desktop'
+        });
+
+
+        Ext.require('Ext.animation.AnimationUtil');
+        Ext.require('OS.OSApplication');
+
+        var osApplication ;
+
+        var user = <%=user%>;
+
+        var arr = [<%=app%>];
+
+        Ext.require(arr);
+
+
+
+        Ext.onReady(function () {
+
+            osApplication = new OS.OSApplication();
+            if(!user){
+                Ext.animation.AnimationUtil.initLogin(osApplication,'login');
+            }else{
+                osApplication.initDesk(user);
+            }
+        });
+    </script>
+    <!-- </x-compile> -->
+</head>
+<body >
+
+</body>
+</html>

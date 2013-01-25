@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>一个有趣的页面</title>
+
+    <link rel="stylesheet" type="text/css" href="../ext4/resources/css/ext-all.css" />
+    <link rel="stylesheet" type="text/css" href="css/desktop.css" />
+    <link rel='stylesheet' type="text/css" href="../animation/css/button.css" />
+    <link rel='stylesheet' type="text/css"  href="../animation/css/animation.css" />
+    <link rel='stylesheet' type="text/css"  href="../animation/css/note.css" />
+
+     <!-- GC -->
+
+    <!-- <x-compile> -->
+    <!-- <x-bootstrap> -->
+    <script type="text/javascript" src="../ext4/ext-all-debug.js"></script>
+    <!-- </x-bootstrap> -->
+    <script type="text/javascript">
+        Ext.Loader.setConfig({
+            enabled: true
+        });
+
+        Ext.Loader.setPath({
+            'Ext.ux.desktop': 'js',
+            'OS.appLoad':'../os/appLoad',
+            'OS.user':'../os/user',
+            'OS':'../os',
+            'Ext.animation':'../animation',
+            MyDesktop: ''
+        });
+
+
+        Ext.require('Ext.animation.Note');
+
+
+
+
+        Ext.onReady(function () {
+
+            var note = Ext.animation.Note.createNote({title:'222',width:300});
+            note.append(Ext.getBody());
+            note.note.animate({
+                top:300,
+                left:200,
+                duration: 2500
+
+            });
+           // myDesktopApp = new MyDesktop.App();
+        });
+    </script>
+    <!-- </x-compile> -->
+</head>
+<body >
+
+</body>
+</html>
