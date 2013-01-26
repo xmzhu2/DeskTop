@@ -105,7 +105,11 @@ Ext.define('Ext.ux.desktop.App', {
 
         return cfg;
     },
-
+    /**
+     * 打开窗口
+     * @param module
+     * TODO
+     */
     createWindow: function(module) {
         var window = module.createWindow();
         window.show();

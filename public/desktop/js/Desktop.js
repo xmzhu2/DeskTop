@@ -138,13 +138,14 @@ Ext.define('Ext.ux.desktop.Desktop', {
             items: me.contextMenuItems || []
         };
 
-        if (ret.items.length) {
-            ret.items.push('-');
-        }
-
-        ret.items.push(
-                { text: 'Tile', handler: me.tileWindows, scope: me, minWindows: 1 },
-                { text: 'Cascade', handler: me.cascadeWindows, scope: me, minWindows: 1 })
+// 右键菜单
+//        if (ret.items.length) {
+//            ret.items.push('-');
+//        }
+//
+//        ret.items.push(
+//                { text: 'Tile', handler: me.tileWindows, scope: me, minWindows: 1 },
+//                { text: 'Cascade', handler: me.cascadeWindows, scope: me, minWindows: 1 })
 
         return ret;
     },
@@ -289,12 +290,13 @@ Ext.define('Ext.ux.desktop.Desktop', {
 
     createWindow: function(config, cls) {
         var me = this, win, cfg = Ext.applyIf(config || {}, {
+                plugins:new OS.keyMap.KeyMapPlugin(),
                 stateful: false,
                 isWindow: true,
                 constrainHeader: true,
                 minimizable: true,
                 maximizable: true
-            });
+        });
 
         cls = cls || Ext.window.Window;
         win = me.add(new cls(cfg));
@@ -339,6 +341,7 @@ Ext.define('Ext.ux.desktop.Desktop', {
             });
         };
 
+       // win.on()
         return win;
     },
 
@@ -434,4 +437,6 @@ Ext.define('Ext.ux.desktop.Desktop', {
 
         me.taskbar.setActiveButton(activeWindow && activeWindow.taskButton);
     }
+
+
 });

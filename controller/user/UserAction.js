@@ -11,7 +11,7 @@ var user = require(global.ModelRoot+'/User').model;
 exports.login = function(req,res){
     var body = req.body;
 
- //   console.log("Login : UserName= '"+body.username +"' Password='"+body.password+"'");
+    console.log("Login : UserName= '"+body.username +"' Password='"+body.password+"'");
 
     user.find({
         username:body.username,

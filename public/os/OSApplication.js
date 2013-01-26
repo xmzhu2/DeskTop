@@ -29,8 +29,8 @@ Ext.define('OS.OSApplication',{
                 "password": password
             },
             success: function(res){
-                var user = OS.user.User.initUser(me,Ext.JSON.decode(res.responseText,true));
-                me.initDesk(user);
+                var user =Ext.JSON.decode(res.responseText,true);
+                me.initDesk(user[0]);
                 callback(scorp);
             },
             failure:function(res){
@@ -45,9 +45,10 @@ Ext.define('OS.OSApplication',{
      */
     initDesk : function(user){
         var me = this;
-        me.app = new MyDesktop.App();
-        me.app.os = me;
+        user = OS.user.User.initUser(me,user);
         me.user = user;
+        me.app = new MyDesktop.App(me);
+
     }
 
 

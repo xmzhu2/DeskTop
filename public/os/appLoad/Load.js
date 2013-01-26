@@ -22,26 +22,23 @@ Ext.define("OS.appLoad.Load",{
 //    ],
 
     statics:{
+        /**
+         * 得到用户信息
+         * @param user
+         * @return {*}
+         */
         getModules : function (user){
             if(user)
                 return user.getUserApps();
-            return [
-                new MyDesktop.VideoWindow(),
-                //new MyDesktop.Blockalanche(),
-                new MyDesktop.SystemStatus(),
-                new MyDesktop.GridWindow(),
-                new MyDesktop.TabWindow(),
-                new MyDesktop.AccordionWindow(),
-                new MyDesktop.Notepad(),
-                new MyDesktop.BogusMenuModule(),
-                new MyDesktop.BogusModule()
-            ];
+            return [];
         },
-        getDesktopConfig:function(user){
-            Ext.Ajax.request({
-
-
-            })
+        /**
+         * 得到用户配置
+         * @param user
+         */
+        getShortcuts:function(user){
+            if(user)
+                return user.getShortcuts();
 
         }
     }

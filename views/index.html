@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" type="text/css" href="ext4/resources/css/ext-all.css" />
     <link rel="stylesheet" type="text/css" href="desktop/css/desktop.css" />
+    <link rel="stylesheet" type="text/css" href="desktop/css/app.css" />
     <link rel='stylesheet' type="text/css" href="animation/css/button.css" />
     <link rel='stylesheet' type="text/css"  href="animation/css/animation.css" />
     <link rel='stylesheet' type="text/css"  href="animation/css/note.css" />
@@ -15,7 +16,7 @@
 
     <!-- <x-compile> -->
     <!-- <x-bootstrap> -->
-    <script type="text/javascript" src="ext4/ext-all.js"></script>
+    <script type="text/javascript" src="ext4/ext-all-dev.js"></script>
     <!-- </x-bootstrap> -->
     <script type="text/javascript">
         Ext.Loader.setConfig({
@@ -24,9 +25,10 @@
 
         Ext.Loader.setPath({
             'Ext.ux.desktop': 'desktop/js',
+            'OS':'os',
+            'OS.keyMap':'os/keyMap',
             'OS.appLoad':'os/appLoad',
             'OS.user':'os/user',
-            'OS':'os',
             'Ext.animation':'animation',
             MyDesktop: 'desktop'
         });
@@ -34,7 +36,7 @@
 
         Ext.require('Ext.animation.AnimationUtil');
         Ext.require('OS.OSApplication');
-
+        Ext.require('OS.keyMap.KeyMapPlugin');
         var osApplication ;
 
         var user = <%=user%>;
@@ -49,15 +51,16 @@
 
             osApplication = new OS.OSApplication();
             if(!user){
-                Ext.animation.AnimationUtil.initLogin(osApplication,'login');
+                Ext.animation.AnimationUtil.initLogin(osApplication,'login',location);
+               // location.reload();
             }else{
                 osApplication.initDesk(user);
             }
+
         });
     </script>
     <!-- </x-compile> -->
 </head>
-<body >
-
+<body id='hello'>
 </body>
 </html>

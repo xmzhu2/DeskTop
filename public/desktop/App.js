@@ -26,6 +26,15 @@ Ext.define('MyDesktop.App', {
 //        'MyDesktop.Blockalanche',
         'MyDesktop.Settings'
     ],
+    /**
+     * 构造方法
+     * @param os
+     */
+    constructor:function(os){
+        this.os = os;
+        //放在后面
+        this.callParent();
+    },
 
     init: function() {
         // custom logic before getXYZ methods get called...
@@ -34,39 +43,36 @@ Ext.define('MyDesktop.App', {
 
         // now ready...
     },
-
+    /**
+     * 得到用户模块
+     * @return {*}
+     */
     getModules : function(){
         var me = this;
         if(!me.os)
             return null;
         return OS.appLoad.Load.getModules(me.os.user);
-
-
-
     },
-
+    /**
+     * 得到用户配置信息
+     * @return {*}
+     */
     getDesktopConfig: function () {
         var me = this, ret = me.callParent();
-
+        var shortcuts = OS.appLoad.Load.getShortcuts(me.os.user);
+        console.log(shortcuts);
         return Ext.apply(ret, {
             //cls: 'ux-desktop-black',
-
             contextMenuItems: [
-                { text: 'Change Settings', handler: me.onSettings, scope: me }
+                { text: '属性', handler: me.onSettings, scope: me }
             ],
-
             shortcuts: Ext.create('Ext.data.Store', {
                 model: 'Ext.ux.desktop.ShortcutModel',
-                data: [
-                    { name: 'Grid Window', iconCls: 'grid-shortcut', module: 'grid-win' },
-                    { name: 'Accordion Window', iconCls: 'accordion-shortcut', module: 'acc-win' },
-                    { name: 'Notepad', iconCls: 'notepad-shortcut', module: 'notepad' },
-                    { name: 'System Status', iconCls: 'cpu-shortcut', module: 'systemstatus'}
-                ]
+                data: shortcuts
             }),
 
-            wallpaper: 'wallpapers/Blue-Sencha.jpg',
-            wallpaperStretch: false
+            wallpaper: 'desktop/wallpapers/Sky.jpg',
+            wallpaperStretch: true
         });
     },
 
@@ -114,7 +120,7 @@ Ext.define('MyDesktop.App', {
     },
 
     onLogout: function () {
-        Ext.Msg.confirm('Logout', 'Are you sure you want to logout?');
+        Ext.Msg.confirm('退出', '确定要退出吗?');
     },
 
     onSettings: function () {

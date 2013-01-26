@@ -21,7 +21,7 @@ Ext.define('MyDesktop.Settings', {
     ],
 
     layout: 'anchor',
-    title: 'Change Settings',
+    title: '设置-修改',
     modal: true,
     width: 640,
     height: 480,
@@ -38,8 +38,8 @@ Ext.define('MyDesktop.Settings', {
         me.tree = me.createTree();
 
         me.buttons = [
-            { text: 'OK', handler: me.onOK, scope: me },
-            { text: 'Cancel', handler: me.close, scope: me }
+            { text: '确定', handler: me.onOK, scope: me },
+            { text: '取消', handler: me.close, scope: me }
         ];
 
         me.items = [
@@ -51,7 +51,7 @@ Ext.define('MyDesktop.Settings', {
                     me.tree,
                     {
                         xtype: 'panel',
-                        title: 'Preview',
+                        title: '预览',
                         region: 'center',
                         layout: 'fit',
                         items: [ me.preview ]
@@ -60,7 +60,7 @@ Ext.define('MyDesktop.Settings', {
             },
             {
                 xtype: 'checkbox',
-                boxLabel: 'Stretch to fit',
+                boxLabel: '自适应',
                 checked: me.stretch,
                 listeners: {
                     change: function (comp) {
@@ -81,7 +81,7 @@ Ext.define('MyDesktop.Settings', {
         }
 
         var tree = new Ext.tree.Panel({
-            title: 'Desktop Background',
+            title: '桌面 背景图片',
             rootVisible: false,
             lines: false,
             autoScroll: true,
@@ -101,6 +101,7 @@ Ext.define('MyDesktop.Settings', {
                     expanded: true,
                     children:[
                         { text: "None", iconCls: '', leaf: true },
+                        child('Sky.jpg'),
                         child('Blue-Sencha.jpg'),
                         child('Dark-Sencha.jpg'),
                         child('Wood-Sencha.jpg'),
@@ -140,7 +141,7 @@ Ext.define('MyDesktop.Settings', {
         var me = this;
 
         if (record.data.img) {
-            me.selected = 'wallpapers/' + record.data.img;
+            me.selected = 'desktop/wallpapers/' + record.data.img;
         } else {
             me.selected = Ext.BLANK_IMAGE_URL;
         }

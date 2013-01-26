@@ -41,7 +41,7 @@ Ext.define('Ext.animation.AnimationUtil',{
         /**
          * 初始化登陆页面
          */
-        initLogin:function(callbackObject,callbackName){
+        initLogin:function(callbackObject,callbackName,location){
             var me = Ext.animation.AnimationUtil
                ,config = me.config
                , dh = Ext.core.DomHelper
@@ -51,6 +51,7 @@ Ext.define('Ext.animation.AnimationUtil',{
             var login = me.dom.login
                 = dh.append(Ext.getBody(),{tag:'div',id:config.login_id,cls:config.login_cls},true);
 
+            me.location = location;
             if(callbackObject[callbackName]) {
                 me.loginFunc = callbackName;
                 me.callbackObject = callbackObject;
@@ -202,7 +203,10 @@ Ext.define('Ext.animation.AnimationUtil',{
                     })
                     dom.right.animate({
                         left:dom.right.getWidth()+dom.right.getLeft(),
-                        duration: 2500
+                        duration: 2500,
+                        callback:function(){
+                            me.location.reload();
+                        }
                     })
                 }
             })

@@ -18,46 +18,30 @@
             enabled: true
         });
 
-        Ext.Loader.setPath({
-            'Ext.ux.desktop': 'js',
-            'Ext.appLoad':'../appLoad',
-            'OS.user':'../os/user',
-            'OS':'../os',
-            MyDesktop: ''
-        });
 
-        Ext.require('MyDesktop.App');
-
-        var arr = [
-            'MyDesktop.SystemStatus',
-            'MyDesktop.VideoWindow',
-            'MyDesktop.GridWindow',
-            'MyDesktop.TabWindow',
-            'MyDesktop.AccordionWindow',
-            'MyDesktop.Notepad',
-            'MyDesktop.BogusMenuModule',
-            'MyDesktop.BogusModule'
-
-        ]
-
-        Ext.require(arr);
-
-        var myDesktopApp;
 
 
         Ext.onReady(function () {
-
-
-            myDesktopApp = new MyDesktop.App();
+            var map = new Ext.KeyMap("hello", [
+                {
+                    key: [10,13],
+                    fn: function(){ alert("Return was pressed"); }
+                }, {
+                    key: "abc",
+                    fn: function(){ alert('a, b or c was pressed'); }
+                }, {
+                    key: "\t",
+                    fn: function(){ alert('Control + shift + tab was pressed.'); }
+                }
+            ]);
         });
     </script>
     <!-- </x-compile> -->
 </head>
 
-<body>
+<body id='hello'>
 
-<a href="http://www.sencha.com" target="_blank" alt="Powered by Ext JS"
-   id="poweredby"><div></div></a>
+<a href="#"  id="poweredby1">1111111111111111111111</a>
 
 </body>
 </html>
