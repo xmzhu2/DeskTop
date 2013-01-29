@@ -11,6 +11,7 @@ module.exports.loadRouter = function(app){
 
     app.post('/user/login.do',userAction.login);
     //app.get('/index.do',userAction.index);
+    app.get('/user/getUserView.do',userAction.getUserView);
 
 }
 

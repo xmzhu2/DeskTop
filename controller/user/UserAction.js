@@ -6,18 +6,17 @@
  * To change this template use File | Settings | File Templates.
  */
 
-var user = require(global.ModelRoot+'/User').model;
+var userDao= require(global.ModelRoot+'/User').model;
 
 exports.login = function(req,res){
     var body = req.body;
 
     console.log("Login : UserName= '"+body.username +"' Password='"+body.password+"'");
 
-    user.find({
+    userDao.find({
         username:body.username,
         password:body.password
     },function(err,reslut){
-
        // console.log(reslut);
         if(reslut.length == 0 ) {
             res.writeHead("500",{
@@ -39,3 +38,19 @@ exports.login = function(req,res){
 
 }
 
+exports.getUserView = function(req,res){
+
+    console.log("用户信息查询 :"+new Date());
+    userDao.find({},{'username':1,'_id':1},function(err,reslut){
+        if(err){
+            console.err("用户查询出错 \r\n"+ err);
+            return;
+        }
+        res.writeHead("200",{
+            'Content-Type': 'text/plain'
+        });
+        res.write(JSON.stringify(reslut));
+        res.end();
+    })
+
+}

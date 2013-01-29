@@ -58,6 +58,7 @@ Ext.define('Ext.animation.AnimationUtil',{
             }
             me.initSize();
             me.initLoginForm(me);
+            me.initKeyMap();
             Ext.EventManager.onWindowResize(function(){
                 me.initSize();
             })
@@ -106,6 +107,9 @@ Ext.define('Ext.animation.AnimationUtil',{
             exit_button.on('click',me.regist,me);
 
         },
+        /**
+         * 登陆
+         */
         login :function(){
             var me = this
                username = Ext.get(me.config.username_id).getValue(),
@@ -144,14 +148,21 @@ Ext.define('Ext.animation.AnimationUtil',{
          */
         loginErr:function(data){
             var me = this;
-            var login = me.dom.login,left = me.dom.left;
-            var shanke_ = 16 , aspect = 2;
+            var login = me.dom.login,left = me.dom.left,
+                top = login.getTop();
+            var shanke_ = 16 , aspect = 1.5;
             data = data||{msg:"没有提示自己猜测"}
             function shake(){
-                if(shanke_-- == 0) return ;
+                if(shanke_-- == 0) {
+                    login.animate({
+                        duration: 100,
+                        top:top
+                    })
+                    return ;
+                }
                 aspect *=-1;
                 login.animate({
-                    duration: 7*shanke_,
+                    duration: 6*shanke_,
                     top:login.getTop()-shanke_*aspect,
                     callback:function(){
                         shake();
@@ -266,7 +277,10 @@ Ext.define('Ext.animation.AnimationUtil',{
                 duration:1000
             })
         },
-
+        /**
+         * 注册页面
+         * @return {*}
+         */
         initRegist:function(){
             var me  = this,
                 dh = Ext.core.DomHelper,
@@ -281,8 +295,18 @@ Ext.define('Ext.animation.AnimationUtil',{
             dh.append(regist,'<span class="regist_button text">加入我们</span>')
 
             return regist;
-        }
+        },
 
+        initKeyMap:function(){
+            var me = this;
+            var   map = new Ext.KeyMap(Ext.getBody(),{
+                    key:13,
+                    fn:function(){
+                        me.login();
+                    }
+                })
+
+        }
     }
 })
 

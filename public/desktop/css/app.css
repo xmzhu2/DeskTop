@@ -1,4 +1,35 @@
-
+/**
+*用户管理
+*/
 .user-manager {
     background-image: url(../images/lxr.png);
+}
+
+.user-manager-icon {
+    background-image: url(../images/lxr_16.png)!important;
+}
+
+
+/**
+  fileView
+*/
+
+.file-view-base {
+    float:left;
+    margin: 8px;
+    padding:8px;
+    width:112px;
+    height:112px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.file-view-onwer {
+    width:104px;
+    height:104px;
+}
+
+.file-view-span {
+    font-family:"arial";
+    font-size:16px;
 }

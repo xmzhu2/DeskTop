@@ -15,6 +15,7 @@
 var index_path = '/index.do',
     login_path = '/user/login.do';
 
+var userDao = require(global.ModelRoot+'/User').model;
 /**
  * 首页登陆
  * @param req
@@ -50,5 +51,28 @@ exports.filter = function(req,res,next){
     }else{
         res.redirect(index_path);
     }
+
+}
+
+/**
+ * 更新session中用户信息
+ * @param req
+ * @param res
+ * @param next
+ */
+exports.reloadUser =function(req,res){
+
+    var user = req.session.user[0];
+    if(!user) {
+        res.redirect(index_path);
+        return;
+    }
+    userDao.find({
+        username:user.username,
+        password:user.password
+    },function(err,reslut){
+        req.session.user = reslut;
+        res.redirect(index_path);
+    });
 
 }

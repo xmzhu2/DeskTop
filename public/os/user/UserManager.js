@@ -13,8 +13,9 @@ Ext.define('OS.user.UserManager',{
 
     id:'user-manager',
 
-    require:[
-        'OS.keyMap.KeyMapPlugin'
+    requires:[
+        'OS.keyMap.KeyMapPlugin',
+        'OS.user.UserView'
     ],
 
     uses: [
@@ -37,23 +38,35 @@ Ext.define('OS.user.UserManager',{
             desktop = me.app.getDesktop(),
             win =me.win= desktop.getWindow('user-manager');
         if(!win){
+            var view = me.createWindowView();
             win = desktop.createWindow({
                 id: 'user-manager',
                 title:'用户管理',
                 width:740,
                 height:480,
-                iconCls: 'icon-grid',
+                iconCls: 'user-manager-icon',
                 animCollapse:false,
                 constrainHeader:true,
                 layout: 'fit',
                 keyMaps:me.shortcuts,
                 keyMapsScope:true,
-                items: []
+                items: [view.getView()]
             });
         }
         me.setContextMenuTrue(win);
         win.owner = me;
         return win;
+    },
+
+    /**
+     * 创建试图
+     * @return {*}
+     */
+    createWindowView:function(){
+       var me = this
+           me.view = me.view||(new OS.user.UserView());
+       // me.view.getStore();
+        return me.view;
     },
     /**
      * 创建右键菜单
@@ -62,7 +75,7 @@ Ext.define('OS.user.UserManager',{
     createContextMenu:function(){
         var me=this,
             config = {
-            items:[{ text: '测试右键', handler: me.Test, scope: me, minWindows: 1 }]
+            items:[{ text: '测试右键', handler: function(){alert('测试右键')}, scope: me, minWindows: 1 }]
         };
         return new Ext.menu.Menu(config);
     },
@@ -84,8 +97,5 @@ Ext.define('OS.user.UserManager',{
         appDefaultName:'用户管理',
         appClass:'OS.user.UserManager'
     },
-    //Test
-    Test :function(){
-      Ext.Msg.alert("测试右键");
-    }
+
 })

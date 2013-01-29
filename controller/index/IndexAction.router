@@ -7,5 +7,6 @@ module.exports.loadRouter = function(app){
     app.all('/*.do',indexAction.filter);
 
   //  app.get('/*',indexAction.filter);
+    app.get('/cache.do',indexAction.reloadUser);
     app.get('/index.do',indexAction.index);
 }
