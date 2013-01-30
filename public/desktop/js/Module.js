@@ -22,6 +22,8 @@ Ext.define('Ext.ux.desktop.Module', {
 
     init: Ext.emptyFn,
 
+    subWins:[],
+
     /**
      * 右键菜单
      * @param e
@@ -53,8 +55,31 @@ Ext.define('Ext.ux.desktop.Module', {
     setContextMenuTrue:function(win,contextMenuFlag,keyMapFlag){
         var me = this;
         win.on('afterrender',me.afterRander,me,win,contextMenuFlag||true);
+    },
+    /**
+     * 设置是否子窗口更随父类窗口关闭
+     * @param win
+     */
+    setSubWinsClosedOnClose:function(win){
+        var me = this;
+        win.on('beforedestroy',me.sunWinClose,me);
+    },
+
+    /**
+     *增加子窗口（子窗口是随父窗口关闭而关闭的）
+     * @param win
+     */
+    addSubWins:function(win){
+        this.subWins.push(win);
+    },
+    /**
+     * 子窗口关闭
+     */
+    sunWinClose:function(){
+        var me = this;
+        for(var i = 0 ; i < me.subWins.length ; i++){
+            me.subWins[i].doClose();
+        }
     }
-
-
 
 });

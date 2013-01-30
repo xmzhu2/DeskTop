@@ -48,9 +48,15 @@ Ext.define('OS.OSApplication',{
         user = OS.user.User.initUser(me,user);
         me.user = user;
         me.app = new MyDesktop.App(me);
+        OS.OSApplication.os = me;
+        OS.OSApplication.app = me.app;
+        OS.OSApplication.desktop = me.app.desktop;
+    },
 
+    statics:{
+        os:null,
+        app:null,
+        desktop:null
     }
-
-
 
 })

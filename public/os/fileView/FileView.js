@@ -34,17 +34,57 @@ Ext.define('OS.fileView.FileView',{
     default_view:default_view,
     getView:function(){
         var me = this,
+            store = me.store = me.getStore(),
             view = me.view = Ext.create('Ext.view.View', {
-            store: me.getStore(),
+            store:store,
             tpl: imageTpl,
+            autoScroll : true,
             itemSelector: 'div.file-view-base',
-            emptyText: 'Error'
+            emptyText: 'Error',
+            listeners:{
+                'itemclick':me.getEventFn('itemClick'),
+                'itemdblclick':me.getEventFn('itemDbClick'),
+                'click':me.getEventFn('click')
+            }
         });
         return view;
     },
 
     getStore : function(){},
-    getData:function(){}
+    getData:function(){},
 
+    /**
+     * 事件
+     */
+    getEventFn:function(eventName){
+        var me = this;
+        return function(view,record,item,index,e){
+            me[eventName](view,record,item,index,e);
+        }
+    },
+
+    /**
+     * 子类需要覆盖的属性
+     * 覆盖之后对应相对事件，this指向当前
+     * 参数：
+     * view 当前视图对象
+     * record  数据model
+     * item html对象
+     * index
+     * e event 事件
+     */
+    //单机事件
+    itemClick:function(view,record,item){
+      var me = this;
+      if(me.select) Ext.get(me.select).removeCls('file-view-base-select');
+      me.select = item;
+      Ext.get(me.select).addCls('file-view-base-select')
+    },
+    //双击时间
+    itemDbClick:Ext.emptyFn(),
+
+    click:function(){
+        alert(1);
+    }
 
 })

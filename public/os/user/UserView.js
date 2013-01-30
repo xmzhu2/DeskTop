@@ -8,17 +8,30 @@
 
 Ext.define('file.UserFile',{
     extend:'Ext.data.Model',
+    requires:[
+        'OS.user.UserWin'
+    ],
     fields: [
         { name:'username', type:'string' },
         { name:'_id', type:'string' },
         { name:'src', type:'string' },
         { name:'caption',type:'string'}
-    ]
+    ],
+    getUserWin:function(onwer){
+        var me = this;
+        me.win = OS.user.UserWin.createWin(me);
+        onwer.addSubWins(me.win);
+    }
 })
 
 
 Ext.define("OS.user.UserView",{
     extend:'OS.fileView.FileView',
+
+    constructor:function(onwer){
+        this.onwer = onwer;
+        this.win = onwer.win;
+    },
 
     getStore:function(){
         var me = this;
@@ -39,6 +52,14 @@ Ext.define("OS.user.UserView",{
                 }
             }
         }))
+    },
+
+    /**
+     * 双击动作动作 覆盖父类方法
+     */
+    itemDbClick:function(view,record){
+        var me = this;
+        record.getUserWin(me.onwer);
     }
 
 })

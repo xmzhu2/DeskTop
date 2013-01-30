@@ -17,7 +17,6 @@
 .file-view-base {
     float:left;
     margin: 8px;
-    padding:8px;
     width:112px;
     height:112px;
     text-align: center;
@@ -32,4 +31,13 @@
 .file-view-span {
     font-family:"arial";
     font-size:16px;
+}
+
+.file-view-base-select {
+    background: #53a8ed;
+    filter:alpha(opacity=65);
+    -moz-opacity:0.65;
+    -khtml-opacity: 0.65;
+    opacity: 0.65;
+
 }

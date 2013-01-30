@@ -18,25 +18,20 @@ Ext.define('OS.user.UserManager',{
         'OS.user.UserView'
     ],
 
-    uses: [
-        'Ext.util.MixedCollection',
-        'Ext.menu.Menu'
-    ],
-
     /**
      * 初始化信息
      */
     init:function(){
         this.launcher = {
             text: '用户管理',
-            iconCls:'icon-grid'
+            iconCls:'user-manager-icon'
         };
     },
 
     createWindow:function(){
         var me = this, appId = me.id;
             desktop = me.app.getDesktop(),
-            win =me.win= desktop.getWindow('user-manager');
+            win = desktop.getWindow('user-manager');
         if(!win){
             var view = me.createWindowView();
             win = desktop.createWindow({
@@ -54,7 +49,9 @@ Ext.define('OS.user.UserManager',{
             });
         }
         me.setContextMenuTrue(win);
+        me.setSubWinsClosedOnClose(win);
         win.owner = me;
+        me.win = win
         return win;
     },
 
@@ -63,8 +60,8 @@ Ext.define('OS.user.UserManager',{
      * @return {*}
      */
     createWindowView:function(){
-       var me = this
-           me.view = me.view||(new OS.user.UserView());
+       var me = this;
+           me.view = me.view||(new OS.user.UserView(me));
        // me.view.getStore();
         return me.view;
     },
