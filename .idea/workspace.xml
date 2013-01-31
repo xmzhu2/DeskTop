@@ -23,7 +23,7 @@
       <file leaf-file-name="OSApplication.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/os/OSApplication.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="30" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.0">
+            <state line="49" column="39" selection-start="1147" selection-end="1147" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -32,18 +32,18 @@
       <file leaf-file-name="UserManager.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/os/user/UserManager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="8" selection-start="1275" selection-end="1275" vertical-scroll-proportion="0.0">
+            <state line="90" column="9" selection-start="2189" selection-end="2189" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileView.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="FileView.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/os/fileView/FileView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="12" selection-start="1718" selection-end="1718" vertical-scroll-proportion="0.6139535">
+            <state line="42" column="38" selection-start="1082" selection-end="1082" vertical-scroll-proportion="0.0">
               <folding>
-                <marker date="1359456318000" expanded="false" signature="495:515" placeholder="..." />
+                <marker date="1359541285000" expanded="false" signature="495:515" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -52,7 +52,7 @@
       <file leaf-file-name="app.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/desktop/css/app.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="16" selection-start="231" selection-end="231" vertical-scroll-proportion="0.0">
+            <state line="43" column="0" selection-start="589" selection-end="589" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -61,25 +61,34 @@
       <file leaf-file-name="UserView.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/os/user/UserView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="0" selection-start="598" selection-end="598" vertical-scroll-proportion="0.0">
+            <state line="93" column="9" selection-start="2616" selection-end="2616" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/desktop/js/App.js">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="114" column="22" selection-start="2813" selection-end="2813" vertical-scroll-proportion="0.0">
+            <state line="17" column="26" selection-start="823" selection-end="823" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserWin.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Module.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/desktop/js/Module.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="91" column="11" selection-start="1837" selection-end="1837" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserWin.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/os/user/UserWin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="38" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0">
+            <state line="52" column="42" selection-start="1566" selection-end="1566" vertical-scroll-proportion="1.1162791">
               <folding />
             </state>
           </provider>
@@ -88,7 +97,7 @@
       <file leaf-file-name="KeyMapPlugin.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/os/keyMap/KeyMapPlugin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="61" selection-start="885" selection-end="885" vertical-scroll-proportion="0.0">
+            <state line="33" column="36" selection-start="1014" selection-end="1014" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -113,22 +122,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/desktop/desktop.html" />
         <option value="$PROJECT_DIR$/controller/index/IndexAction.router" />
         <option value="$PROJECT_DIR$/controller/index/IndexAction.js" />
         <option value="$PROJECT_DIR$/public/os/keyMap/KeyMapUtils.js" />
-        <option value="$PROJECT_DIR$/views/index.html" />
         <option value="$PROJECT_DIR$/public/animation/AnimationUtil.js" />
         <option value="$PROJECT_DIR$/controller/user/UserAction.js" />
         <option value="$PROJECT_DIR$/controller/user/UserRouter.router" />
-        <option value="$PROJECT_DIR$/public/os/OSApplication.js" />
-        <option value="$PROJECT_DIR$/public/os/user/UserView.js" />
         <option value="$PROJECT_DIR$/public/os/keyMap/KeyMapPlugin.js" />
-        <option value="$PROJECT_DIR$/public/os/user/UserManager.js" />
         <option value="$PROJECT_DIR$/public/desktop/js/Module.js" />
-        <option value="$PROJECT_DIR$/public/os/user/UserWin.js" />
+        <option value="$PROJECT_DIR$/public/os/OSApplication.js" />
         <option value="$PROJECT_DIR$/public/desktop/css/app.css" />
+        <option value="$PROJECT_DIR$/public/desktop/js/Desktop.js" />
         <option value="$PROJECT_DIR$/public/os/fileView/FileView.js" />
+        <option value="$PROJECT_DIR$/views/index.html" />
+        <option value="$PROJECT_DIR$/public/os/user/UserManager.js" />
+        <option value="$PROJECT_DIR$/public/os/user/UserView.js" />
+        <option value="$PROJECT_DIR$/public/os/user/UserWin.js" />
       </list>
     </option>
   </component>
@@ -162,7 +171,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -293,7 +301,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="desktop" />
+              <option name="myItemId" value="ext4" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -311,33 +319,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="desktop" />
+              <option name="myItemId" value="ext4" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DeskTop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DeskTop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="desktop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="locale" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -403,13 +389,14 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="restartRequiresConfirmation" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/test/TestUserMongoose.js" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="FullScreen" value="false" />
   </component>
   <component name="PublishConfig">
@@ -533,7 +520,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952926" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -542,7 +529,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36376604" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31669044" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31669044" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -612,20 +599,10 @@
           <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="35" />
+      <option name="time" value="36" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/desktop/css/desktop.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="183" column="20" selection-start="3597" selection-end="3614" vertical-scroll-proportion="0.30232558" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="13" selection-start="1894" selection-end="1894" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/os/keyMap/KeyMapUtils.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="0" selection-start="264" selection-end="264" vertical-scroll-proportion="0.5232558" />
@@ -636,30 +613,9 @@
         <state line="51" column="34" selection-start="1247" selection-end="1247" vertical-scroll-proportion="1.2093023" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/os/OSApplication.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="30" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/desktop/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/desktop/js/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="22" selection-start="2813" selection-end="2813" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/os/keyMap/KeyMapPlugin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="61" selection-start="885" selection-end="885" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/user/UserRouter.router">
@@ -669,52 +625,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/os/user/UserManager.js">
+    <entry file="file://$PROJECT_DIR$/public/desktop/js/ShortcutModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="8" selection-start="1275" selection-end="1275" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/desktop/js/Module.js">
+    <entry file="file://$PROJECT_DIR$/public/desktop/js/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="5" selection-start="1797" selection-end="1797" vertical-scroll-proportion="2.7441862" />
+        <state line="114" column="22" selection-start="2813" selection-end="2813" vertical-scroll-proportion="0.034883723" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/desktop/js/Desktop.js">
+    <entry file="file://$PROJECT_DIR$/public/os/keyMap/KeyMapPlugin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="334" column="26" selection-start="9568" selection-end="9575" vertical-scroll-proportion="1.0302325">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/os/user/UserWin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="38" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/os/user/UserView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="598" selection-end="598" vertical-scroll-proportion="0.0">
+        <state line="33" column="36" selection-start="1014" selection-end="1014" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/desktop/css/app.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="16" selection-start="231" selection-end="231" vertical-scroll-proportion="0.0">
+        <state line="43" column="0" selection-start="589" selection-end="589" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/desktop/js/Desktop.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="188" column="28" selection-start="5284" selection-end="5284" vertical-scroll-proportion="0.75581396" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="26" selection-start="823" selection-end="823" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/os/OSApplication.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="39" selection-start="1147" selection-end="1147" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/os/fileView/FileView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="12" selection-start="1718" selection-end="1718" vertical-scroll-proportion="0.6139535">
+        <state line="42" column="38" selection-start="1082" selection-end="1082" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1359456318000" expanded="false" signature="495:515" placeholder="..." />
+            <marker date="1359541285000" expanded="false" signature="495:515" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/os/user/UserManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="9" selection-start="2189" selection-end="2189" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/os/user/UserView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="93" column="9" selection-start="2616" selection-end="2616" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/desktop/js/Module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="11" selection-start="1837" selection-end="1837" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/os/user/UserWin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="42" selection-start="1566" selection-end="1566" vertical-scroll-proportion="1.1162791">
+          <folding />
         </state>
       </provider>
     </entry>

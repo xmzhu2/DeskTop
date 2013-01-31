@@ -22,6 +22,8 @@ Ext.define('Ext.ux.desktop.Module', {
 
     init: Ext.emptyFn,
 
+    desktop:null,
+
     subWins:[],
 
     /**
@@ -29,19 +31,11 @@ Ext.define('Ext.ux.desktop.Module', {
      * @param e
      */
     onModuleMenu:function(e){
-        var me = this, menu = this.getModuleContextMenu();
+        var me = this, menu =me.contextMenu||(me.contextMenu = me.createContextMenu());
         e.stopEvent();
         menu.showAt(e.getXY());
         menu.doConstrain();
     },
-    getModuleContextMenu:function(){
-        var me = this;
-        if(!me.contextMenu){
-            me.contextMenu = me.createContextMenu();
-        }
-        return me.contextMenu;
-    },
-    createContextMenu:function(){return null},
 
     afterRander:function(win,contextMenuFlag){
         var me = this;
@@ -66,6 +60,17 @@ Ext.define('Ext.ux.desktop.Module', {
     },
 
     /**
+     * 创建快捷键
+     * @return {*}
+     */
+    getShortcuts:function(){
+        var me = this;
+        return (me.shortcuts)?me.shortcuts.concat(me.subShortcuts)
+            :me.subShortcuts;
+    },
+
+
+    /**
      *增加子窗口（子窗口是随父窗口关闭而关闭的）
      * @param win
      */
@@ -80,6 +85,60 @@ Ext.define('Ext.ux.desktop.Module', {
         for(var i = 0 ; i < me.subWins.length ; i++){
             me.subWins[i].doClose();
         }
-    }
+    },
+
+
+    /**
+     * 基础属性
+     */
+      subShortcuts:[] ,
+//    subShortcuts:[{
+//        /**
+//         *ctrl+enter
+//         *效果：最大化
+//         */
+//        key:13,
+//        ctrl:true,
+//        fn:function(){
+//            var me = this;
+//            if(me.maximized){
+//                me.restore().maximized = false;
+//            }else{
+//                me.maximize().maximized = true;
+//            }
+//        }
+//    },{
+//        /**
+//         * alt+enter
+//         * 效果：最小化
+//         */
+//        key:13,
+//        alt:true,
+//        fn:function(){
+//            var me = this;
+//            if(me.minimized){
+//
+//            }else{
+//                me.minimize().minimized = true;
+//            }
+//        }
+//    },{
+//        /**
+//         * alt+q
+//         * 效果：快速推出
+//         */
+//        key:'q',
+//        alt:true,
+//        fn:function(){
+//            var me = this;
+//            me.close();
+//        }
+//    }],
+
+    /**
+     * 需要子类覆盖的方法
+     */
+    //右键菜单
+    createContextMenu:function(){return null}
 
 });

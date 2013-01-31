@@ -7,6 +7,8 @@
  * 用户窗口
  */
 
+
+
 Ext.define('OS.user.UserWin',{
     extend:'Ext.ux.desktop.Module',
 
@@ -19,13 +21,15 @@ Ext.define('OS.user.UserWin',{
             me.id= winId;
         if(!win){
             win = desktop.createWindow({
-                id: 'user-win'+winId,
+                id: 'user-win'+me.id,
                 title:'用户管理'+(("-"+username)||""),
-                width:440,
-                height:300,
+                width:540,
+                height:400,
                 iconCls: 'user-manager-icon',
                 animCollapse:false,
                 constrainHeader:true,
+                keyMaps:me.getShortcuts(),
+                keyMapsScope:true,
                 layout: {
                     type: 'border',
                     padding: 5
@@ -33,11 +37,23 @@ Ext.define('OS.user.UserWin',{
                 items: [{
                     region: 'west',
                     title: '导航',
-                    width: 200,
+                    width: 160,
                     split: true,
                     collapsible: true,
                     floatable: false,
-                    items:[]
+                    layout:'accordion',
+                    defaults: {
+                        bodyStyle: 'padding:5px'
+                    },
+                    items:[{
+                        title:'用户基本信息',
+                        items:[
+                            {
+                                border:0,
+                                html:'tet'
+                            }
+                        ]
+                    }]
                 }, {
                     region: 'center',
                     xtype: 'tabpanel',
@@ -73,7 +89,12 @@ Ext.define('OS.user.UserWin',{
       me.win.close();
     },
     statics:{
-        createWin :function(model){
+        id:1,
+        createWin :function(model,newfalg){
+            if(newfalg){
+                userWin = new OS.user.UserWin();
+                return userWin.createWindow((OS.user.UserWin.id++),'新增');
+            }
             userWin = new OS.user.UserWin();
             return userWin.createWindow(model.get('_id'),model.get('username'));
         }

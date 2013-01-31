@@ -16,6 +16,7 @@ Ext.define('OS.keyMap.KeyMapPlugin',{
        // console.log(console_text + me);
         var keyMap = OS.keyMap.KeyMapPlugin;
         win.onRender = Ext.Function.createSequence(win.onRender,keyMap.add);
+        win.onDestroy =  Ext.Function.createSequence(win.onDestroy,keyMap.close);
     },
     statics :{
         keyMap:{},
@@ -24,13 +25,22 @@ Ext.define('OS.keyMap.KeyMapPlugin',{
         add:function(){
             //console.log(console_text+ me.keyMap);
             var me = this;
-            delete me.onRender;
             var keyMap = OS.keyMap.KeyMapPlugin;
             if(!me.keyMaps) return ;
             if(me.keyMapsScope) keyMap.setScope(me.keyMaps,me);
-            var map = new Ext.KeyMap(me.getEl(), me.keyMaps);
-            keyMap.keyMap[me.id] = map;
-
+            if(keyMap.keyMap[me.id]){
+                keyMap.keyMap[me.id].enable();
+            }else{
+                var map = new Ext.KeyMap(me.getEl(), me.keyMaps);
+                keyMap.keyMap[me.id] = map;
+            }
+        },
+        close:function(){
+            var me = this;
+            var keyMap = OS.keyMap.KeyMapPlugin;
+            var map = keyMap.keyMap[me.id];
+            delete keyMap.keyMap[me.id];
+            map.destroy()
         },
         setScope:function(keyMaps,scope){
             for(var i = 0 ; i < keyMaps.length; i ++){

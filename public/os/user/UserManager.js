@@ -29,7 +29,7 @@ Ext.define('OS.user.UserManager',{
     },
 
     createWindow:function(){
-        var me = this, appId = me.id;
+        var me = this, appId = me.id,
             desktop = me.app.getDesktop(),
             win = desktop.getWindow('user-manager');
         if(!win){
@@ -43,7 +43,7 @@ Ext.define('OS.user.UserManager',{
                 animCollapse:false,
                 constrainHeader:true,
                 layout: 'fit',
-                keyMaps:me.shortcuts,
+                keyMaps:me.getShortcuts(),
                 keyMapsScope:true,
                 items: [view.getView()]
             });
@@ -72,9 +72,23 @@ Ext.define('OS.user.UserManager',{
     createContextMenu:function(){
         var me=this,
             config = {
-            items:[{ text: '测试右键', handler: function(){alert('测试右键')}, scope: me, minWindows: 1 }]
+            items:[
+                { text: '增加', handler: me.add, scope: me, minWindows: 1 },
+                { text: '批量删除', handler: function(){alert('测试右键')}, scope: me, minWindows: 1 },
+                { text: '测试右键', handler: function(){alert('测试右键')}, scope: me, minWindows: 1 }
+            ]
         };
         return new Ext.menu.Menu(config);
+    },
+
+    /**
+     *
+     */
+    add:function(){
+        var me = this;
+        if(me.view){
+            me.view.add();
+        }
     },
 
     /**
@@ -93,6 +107,6 @@ Ext.define('OS.user.UserManager',{
         appIconCls:'user-manager',
         appDefaultName:'用户管理',
         appClass:'OS.user.UserManager'
-    },
+    }
 
 })

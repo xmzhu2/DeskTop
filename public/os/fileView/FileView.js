@@ -40,11 +40,13 @@ Ext.define('OS.fileView.FileView',{
             tpl: imageTpl,
             autoScroll : true,
             itemSelector: 'div.file-view-base',
-            emptyText: 'Error',
+            emptyText: me.emptyText|| 'Error',
             listeners:{
                 'itemclick':me.getEventFn('itemClick'),
                 'itemdblclick':me.getEventFn('itemDbClick'),
-                'click':me.getEventFn('click')
+                'click':me.getEventFn('click'),
+                'containerclick':me.getEventFn('containerClick'),
+                'itemcontextmenu':me.getEventFn('itemContextMenu')
             }
         });
         return view;
@@ -52,6 +54,7 @@ Ext.define('OS.fileView.FileView',{
 
     getStore : function(){},
     getData:function(){},
+    getItemContextMenu:function(){return null},
 
     /**
      * 事件
@@ -80,11 +83,25 @@ Ext.define('OS.fileView.FileView',{
       me.select = item;
       Ext.get(me.select).addCls('file-view-base-select')
     },
-    //双击时间
+    //双击事件
     itemDbClick:Ext.emptyFn(),
 
-    click:function(){
-        alert(1);
+    //容器单击
+    containerClick:function(){
+        var me = this;
+        if(me.select) Ext.get(me.select).removeCls('file-view-base-select');
+    },
+    //右击事件
+    itemContextMenu:function(view,record,item,index,e){
+        var me = this,menu = me.getItemContextMenu(record);
+        if(me.select) Ext.get(me.select).removeCls('file-view-base-select');
+        me.select = item;
+        Ext.get(me.select).addCls('file-view-base-select')
+        if(menu != null){
+            e.stopEvent();
+            menu.showAt(e.getXY());
+            menu.doConstrain();
+        }
     }
 
 })

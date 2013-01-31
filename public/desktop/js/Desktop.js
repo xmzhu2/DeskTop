@@ -112,6 +112,22 @@ Ext.define('Ext.ux.desktop.Desktop', {
         var me = this;
         me.callParent();
         me.el.on('contextmenu', me.onDesktopMenu, me);
+        var map = new Ext.KeyMap(me.el,[{
+            /**
+             *ctrl+enter
+             *效果：最大化
+             */
+            key:13,
+            ctrl:true,
+            fn:function(){
+                var win = me.getActiveWindow();
+                if(win && !me.maximized){
+                    win.maximize();
+                }else{
+
+                }
+            }
+        }])
     },
 
     //------------------------------------------------------
@@ -155,11 +171,11 @@ Ext.define('Ext.ux.desktop.Desktop', {
         return {
             defaultAlign: 'br-tr',
             items: [
-                { text: 'Restore', handler: me.onWindowMenuRestore, scope: me },
-                { text: 'Minimize', handler: me.onWindowMenuMinimize, scope: me },
-                { text: 'Maximize', handler: me.onWindowMenuMaximize, scope: me },
+                { text: '复原', handler: me.onWindowMenuRestore, scope: me },
+                { text: '最小化', handler: me.onWindowMenuMinimize, scope: me },
+                { text: '最大化', handler: me.onWindowMenuMaximize, scope: me },
                 '-',
-                { text: 'Close', handler: me.onWindowMenuClose, scope: me }
+                { text: '关闭', handler: me.onWindowMenuClose, scope: me }
             ],
             listeners: {
                 beforeshow: me.onWindowMenuBeforeShow,
@@ -290,6 +306,7 @@ Ext.define('Ext.ux.desktop.Desktop', {
 
     createWindow: function(config, cls) {
         var me = this, win, cfg = Ext.applyIf(config || {}, {
+                //键盘监听
                 plugins:new OS.keyMap.KeyMapPlugin(),
                 stateful: false,
                 isWindow: true,

@@ -52,7 +52,6 @@ Ext.define('OS.OSApplication',{
         OS.OSApplication.app = me.app;
         OS.OSApplication.desktop = me.app.desktop;
     },
-
     statics:{
         os:null,
         app:null,
