@@ -46,7 +46,9 @@ Ext.define('OS.fileView.FileView',{
                 'itemdblclick':me.getEventFn('itemDbClick'),
                 'click':me.getEventFn('click'),
                 'containerclick':me.getEventFn('containerClick'),
-                'itemcontextmenu':me.getEventFn('itemContextMenu')
+                'itemcontextmenu':me.getEventFn('itemContextMenu'),
+                'itemmouseenter':me.getEventFn('itemMouseEnter'),
+                'itemmouseleave':me.getEventFn('itemMouseLeaMve')
             }
         });
         return view;
@@ -91,6 +93,16 @@ Ext.define('OS.fileView.FileView',{
         var me = this;
         if(me.select) Ext.get(me.select).removeCls('file-view-base-select');
     },
+
+    itemMouseEnter:function(view,record,item){
+        var me = this;
+        Ext.get(item).addCls('file-view-base-mouse');
+    },
+    itemMouseLeaMve:function(view,record,item){
+        var me = this;
+        Ext.get(item).removeCls('file-view-base-mouse');
+    },
+
     //右击事件
     itemContextMenu:function(view,record,item,index,e){
         var me = this,menu = me.getItemContextMenu(record);

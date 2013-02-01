@@ -34,26 +34,29 @@ Ext.define('OS.user.UserWin',{
                     type: 'border',
                     padding: 5
                 },
+                bodyStyle:{
+                    background:'#ecf0ff'
+                },
                 items: [{
                     region: 'west',
                     title: '导航',
                     width: 160,
                     split: true,
                     collapsible: true,
-                    floatable: false,
-                    layout:'accordion',
-                    defaults: {
-                        bodyStyle: 'padding:5px'
+                    xtype:'panel',
+                    bodyStyle: {
+                        background: '#dce9ff'
                     },
-                    items:[{
-                        title:'用户基本信息',
-                        items:[
-                            {
-                                border:0,
-                                html:'tet'
-                            }
-                        ]
-                    }]
+                    frame:true,
+                    items: [
+                         new OS.user.UserWin.Label({data:{
+                            'text':'用户基础信息',
+                            'icon':'user-manager-icon'
+                        }}),new OS.user.UserWin.Label({data:{
+                            'text':'用户APP信息',
+                            'icon':'user-manager-icon'
+                        }})
+                    ]
                 }, {
                     region: 'center',
                     xtype: 'tabpanel',
@@ -96,8 +99,37 @@ Ext.define('OS.user.UserWin',{
                 return userWin.createWindow((OS.user.UserWin.id++),'新增');
             }
             userWin = new OS.user.UserWin();
+            userWin.model = model;
             return userWin.createWindow(model.get('_id'),model.get('username'));
         }
 
+    }
+})
+
+
+Ext.define('OS.user.UserWin.Label',{
+    'extend':'Ext.form.Label',
+    constructor: function(cfg) {
+        var me = this;
+        cfg = cfg || {};
+        me.callParent([Ext.apply({
+                height: 20,
+                width: 160,
+                data:cfg.data,
+                tpl:['<div><span class={icon} style="display: inline-block;"></span>{text}</div>'],
+                listeners:{
+                    'afterrender':function(me){
+                        me.getEl().on('mouseenter',function(){
+                            this.getEl().down('div').addCls('file-view-base-mouse');
+                        },me)
+                        me.getEl().on('mouseleave',function(){
+                            this.getEl().down('div').removeCls('file-view-base-mouse');
+                        },me)
+                        me.getEl().on('click',function(){
+                            alert(1);
+                        },me)
+                    }
+                }
+            }, cfg)])
     }
 })

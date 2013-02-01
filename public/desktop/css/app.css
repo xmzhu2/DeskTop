@@ -7,6 +7,9 @@
 
 .user-manager-icon {
     background-image: url(../images/lxr_16.png)!important;
+    width:16px;
+    height: 16px;
+    background-repeat: no-repeat;
 }
 
 
@@ -30,18 +33,31 @@
 
 .file-view-span {
     font-family:"arial";
+    color:#9b4aff;
     font-size:16px;
 }
 
 .file-view-base-select {
-    background: #53a8ed;
-    filter:alpha(opacity=65);
-    -moz-opacity:0.65;
-    -khtml-opacity: 0.65;
-    opacity: 0.65;
+    background: #c8d0ff;
+    filter:alpha(opacity=85);
+    -moz-opacity:0.85;
+    -khtml-opacity: 0.85;
+    opacity: 0.85;
+    border:1px dashed #53989d;
+}
+.file-view-base-mouse{
+    background: #e0e4ff;
+    opacity: 0.95;
 
 }
+.file-view-base-mouse div{
+    background: #dbe4ff;
+    filter:alpha(opacity=0.95);
+    -moz-opacity:0.95;
+    -khtml-opacity: 0.95;
+    opacity: 0.95;
 
+}
 
 .win-active {
     background: red;

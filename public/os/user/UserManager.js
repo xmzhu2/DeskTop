@@ -39,6 +39,9 @@ Ext.define('OS.user.UserManager',{
                 title:'用户管理',
                 width:740,
                 height:480,
+                bodyStyle: {
+                    background: '#dce9ff'
+                },
                 iconCls: 'user-manager-icon',
                 animCollapse:false,
                 constrainHeader:true,
