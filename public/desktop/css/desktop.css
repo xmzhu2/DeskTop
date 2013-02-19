@@ -324,3 +324,19 @@
 .user-suit {
     background-image:url(../../shared/icons/fam/user_suit.gif) !important;
 }
+
+.my-dock {
+    border-radius: 10px 10px;
+    filter:alpha(opacity=65);
+    -moz-opacity:0.65;
+    -khtml-opacity: 0.65;
+    opacity: 0.65;
+    position: absolute;
+    z-index:999999;
+    background-color: #aaaaaa;
+    border:red;
+}
+.my-dock-top {
+    position: absolute;
+    z-index:999999;
+}

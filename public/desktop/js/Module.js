@@ -33,6 +33,7 @@ Ext.define('Ext.ux.desktop.Module', {
     onModuleMenu:function(e){
         var me = this, menu =me.contextMenu||(me.contextMenu = me.createContextMenu());
         e.stopEvent();
+        if(!menu) return;
         menu.showAt(e.getXY());
         menu.doConstrain();
     },

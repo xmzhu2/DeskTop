@@ -14,16 +14,8 @@ Ext.define('MyDesktop.App', {
         'Ext.ux.desktop.ShortcutModel',
 
         'OS.appLoad.Load',
-//        'MyDesktop.SystemStatus',
-//        'MyDesktop.VideoWindow',
-//        'MyDesktop.GridWindow',
-//        'MyDesktop.TabWindow',
-//        'MyDesktop.AccordionWindow',
-//        'MyDesktop.Notepad',
-//        'MyDesktop.BogusMenuModule',
-//        'MyDesktop.BogusModule',
+        'OS.dock.Dock',
 
-//        'MyDesktop.Blockalanche',
         'MyDesktop.Settings'
     ],
     /**
@@ -37,11 +29,9 @@ Ext.define('MyDesktop.App', {
     },
 
     init: function() {
-        // custom logic before getXYZ methods get called...
-
         this.callParent();
-
-        // now ready...
+        //初始化DOCK
+        this.getDock().init();
     },
     /**
      * 得到用户模块
@@ -60,11 +50,13 @@ Ext.define('MyDesktop.App', {
     getDesktopConfig: function () {
         var me = this, ret = me.callParent();
         var shortcuts = OS.appLoad.Load.getShortcuts(me.os.user);
-        console.log(shortcuts);
         return Ext.apply(ret, {
             //cls: 'ux-desktop-black',
             contextMenuItems: [
+                {text:'DOCK设置',handler:me.onDockSettings,scope : me},
+                '-',
                 { text: '属性', handler: me.onSettings, scope: me }
+
             ],
             shortcuts: Ext.create('Ext.data.Store', {
                 model: 'Ext.ux.desktop.ShortcutModel',
@@ -74,6 +66,10 @@ Ext.define('MyDesktop.App', {
             wallpaper: 'desktop/wallpapers/Sky.jpg',
             wallpaperStretch: true
         });
+    },
+
+    getDock : function(){
+        return this.dock || (this.dock = new OS.dock.Dock());
     },
 
     // config for the start menu
@@ -88,14 +84,14 @@ Ext.define('MyDesktop.App', {
                 width: 100,
                 items: [
                     {
-                        text:'Settings',
+                        text:'设置',
                         iconCls:'settings',
                         handler: me.onSettings,
                         scope: me
                     },
                     '-',
                     {
-                        text:'Logout',
+                        text:'退出',
                         iconCls:'logout',
                         handler: me.onLogout,
                         scope: me

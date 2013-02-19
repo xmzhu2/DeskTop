@@ -11,7 +11,8 @@ var UserApp = require('./UserApp');
 var UserSchema = new global.Schema({
     username:String,
     password:String,
-    userApps : [UserApp.schema]
+    userApps : [UserApp.schema],
+    userInfo :Object
 })
 
 
@@ -28,7 +29,9 @@ UserSchema.methods.from = function(model){
 
 }
 
-
+UserSchema.methods.getUserInfo = function(model){
+    return this.userInfo;
+}
 
 User  = global.mongoose.model("user",UserSchema);
 module.exports.model = User;

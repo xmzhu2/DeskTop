@@ -145,7 +145,39 @@ Ext.define('Ext.ux.desktop.Desktop', {
                 position: 'absolute'
             },
             x: 0, y: 0,
-            tpl: new Ext.XTemplate(me.shortcutTpl)
+            tpl: new Ext.XTemplate(me.shortcutTpl),
+            listeners:{
+                render:function(v) {
+                    v.dragZone = Ext.create('Ext.dd.DragZone', v.getEl(), {
+                            ddGroup:'dockGroup',
+                            getDragData: function(e) {
+                            var sourceEl = e.getTarget(v.itemSelector, 10), d;
+                            if (sourceEl) {
+                                d = sourceEl.cloneNode(true);
+                                d.id = Ext.id();
+                                return v.dragData = {
+                                    sourceEl: sourceEl,
+                                    repairXY: Ext.fly(sourceEl).getXY(),
+                                    ddel: d,
+                                    patientData: v.getRecord(sourceEl).data
+                                };
+                            }
+                        },
+                        onDragDrop:function(e,id){
+                            var obj = Ext.get(id).parentObj;
+                            if(obj && this.el.dom.parentNode.id != id){
+                                obj.addDragDrop(this.dragData.patientData);
+                                this.onInvalidDrop(e);
+                            }else{
+                                this.onInvalidDrop(e);
+                            }
+                        },
+                        getRepairXY: function() {
+                            return this.dragData.repairXY;
+                        }
+                    });
+                }
+            }
         };
     },
 

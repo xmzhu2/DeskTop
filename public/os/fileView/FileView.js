@@ -8,6 +8,13 @@
  */
 
 var default_view = "../../desktop/images/mrtx.png";
+
+var defalt_views = {
+    'user-manager':'../../desktop/images/lxr.png'
+
+}
+
+
 Ext.define('File', {
     extend: 'Ext.data.Model',
     fields: [
@@ -32,16 +39,20 @@ var imageTpl = new Ext.XTemplate(
 
 Ext.define('OS.fileView.FileView',{
     default_view:default_view,
-    getView:function(){
+    default_src : { name:'src', type:'string' },
+    default_caption:{ name:'caption', type:'string' },
+    getView:function(cfg){
+        cfg = cfg || {};
         var me = this,
             store = me.store = me.getStore(),
             view = me.view = Ext.create('Ext.view.View', {
             store:store,
-            tpl: imageTpl,
+            tpl: me.tpl || imageTpl,
             autoScroll : true,
-            itemSelector: 'div.file-view-base',
+            itemSelector:me.selector_ || 'div.file-view-base',
             emptyText: me.emptyText|| 'Error',
             listeners:{
+                render : (cfg.isDrag)?me.initDrag:Ext.emptyFn,
                 'itemclick':me.getEventFn('itemClick'),
                 'itemdblclick':me.getEventFn('itemDbClick'),
                 'click':me.getEventFn('click'),
@@ -57,6 +68,15 @@ Ext.define('OS.fileView.FileView',{
     getStore : function(){},
     getData:function(){},
     getItemContextMenu:function(){return null},
+
+    initStore:function(records,caption,src){
+        var me = this;
+        for(var i=0;i<records.length;i++ ){
+            var record  = records[i];
+            record.set('caption',record.get(caption));
+            record.set('src',defalt_views[record.get(src)]||me.default_view);
+        }
+    },
 
     /**
      * 事件
@@ -114,6 +134,32 @@ Ext.define('OS.fileView.FileView',{
             menu.showAt(e.getXY());
             menu.doConstrain();
         }
-    }
+    },
+
+
+    /**
+     * 拖拽init
+     */
+    initDrag :function(v) {
+        v.dragZone = Ext.create('Ext.dd.DragZone', v.getEl(), {
+
+            getDragData: function(e) {
+                var sourceEl = e.getTarget(v.itemSelector, 10), d;
+                if (sourceEl) {
+                    d = sourceEl.cloneNode(true);
+                    d.id = Ext.id();
+                    return v.dragData = {
+                        sourceEl: sourceEl,
+                        repairXY: Ext.fly(sourceEl).getXY(),
+                        ddel: d,
+                        patientData: v.getRecord(sourceEl).data
+                    };
+                }
+            },
+            getRepairXY: function() {
+                return this.dragData.repairXY;
+            }
+    });
+}
 
 })

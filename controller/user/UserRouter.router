@@ -13,5 +13,14 @@ module.exports.loadRouter = function(app){
     //app.get('/index.do',userAction.index);
     app.get('/user/getUserView.do',userAction.getUserView);
 
+    app.post('/user/getUserInfo.do',userAction.getUserInfo);
+
+    app.post('/user/save.do',userAction.save);
+
+    app.post('/user/update.do',userAction.update);
+
+    app.post('/user/getUserInfoByQuery.do',userAction.getUserInfoByQuery);
+
+
 }
 
