@@ -1,0 +1,15 @@
+{
+    "appName":"Property Management OS",
+    "author":"xmzhu2/jytao",
+    "mainClass":"PMOS.PMOSApp",
+    "basePath":{
+        "PMOS":"pmos"
+    },
+    "pageJson":{
+        "appId":"pmos-manager",
+        "appIconCls":"pmos-manager",
+        "appDefaultName":"用户管理",
+        "appClass":"OS.user.UserManager"
+    }
+
+}

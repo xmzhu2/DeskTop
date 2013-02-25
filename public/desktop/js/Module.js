@@ -24,7 +24,7 @@ Ext.define('Ext.ux.desktop.Module', {
 
     desktop:null,
 
-    subWins:[],
+    subWins:{},
 
     /**
      * 右键菜单
@@ -76,15 +76,18 @@ Ext.define('Ext.ux.desktop.Module', {
      * @param win
      */
     addSubWins:function(win){
-        this.subWins.push(win);
+        var me = this;
+        if(! me.subWins[me.id])  me.subWins[me.id]  = [];
+        me.subWins[me.id].push(win);
     },
     /**
      * 子窗口关闭
      */
     sunWinClose:function(){
-        var me = this;
-        for(var i = 0 ; i < me.subWins.length ; i++){
-            me.subWins[i].doClose();
+        var me = this,subWins = me.subWins[me.id];
+        if(!subWins) return;
+        for(var i = 0 ; i < subWins.length ; i++){
+            subWins[i].doClose();
         }
     },
 

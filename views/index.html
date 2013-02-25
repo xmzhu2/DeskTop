@@ -12,7 +12,12 @@
     <link rel='stylesheet' type="text/css"  href="animation/css/note.css" />
     <link rel='stylesheet' type="text/css"  href="animation/css/text.css" />
 
+    <!-- 动态导入CSS文件-->
+    <link rel='stylesheet' type="text/css" href="apps/pmos/css/main.css" />
+
      <!-- GC -->
+
+
 
     <!-- <x-compile> -->
     <!-- <x-bootstrap> -->
@@ -34,6 +39,10 @@
             'Ext.animation':'animation',
             MyDesktop: 'desktop'
         });
+
+        Ext.Loader.setPath({
+            'PMOS':'apps/pmos'
+        })
 
 
         Ext.require('Ext.animation.AnimationUtil');

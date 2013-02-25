@@ -21,7 +21,7 @@ Ext.define('OS.user.UserWin',{
         if(!win){
             win = desktop.createWindow({
                 id: 'user-win'+me.id,
-                title:'用户管理'+(("-"+username)||""),
+                title:'用户管理'+(("-"+winId+'-'+username)||""),
                 width:540,
                 height:400,
                 iconCls: 'user-manager-icon',
@@ -66,7 +66,7 @@ Ext.define('OS.user.UserWin',{
                 }, {
                     region: 'center',
                     xtype: 'panel',
-                    id:'detailId',
+                    id:'detailId'+winId,
                     layout:'fit',
                     bodyStyle: {
                         background: '#dce9ff'
@@ -91,6 +91,7 @@ Ext.define('OS.user.UserWin',{
     doClose :function(){
       var me = this;
       me.win.close();
+      return me;
     },
     statics:{
         id:1,
@@ -135,7 +136,7 @@ Ext.define('OS.user.UserWin.Label',{
             }, cfg)])
     },
     getLabelWin:function(labelWinId,win,winId){
-        var detailWin = win.up().up().down('#detailId');
+        var detailWin = win.up().up().down('#detailId'+winId);
         detailWin.removeAll();
         if(labelWinId == 'userInfo'){
             var detail = new OS.user.UserWin.UserInfoPanel();
